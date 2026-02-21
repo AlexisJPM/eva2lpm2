@@ -3,9 +3,8 @@
 
         <div class="mb-10 text-center md:text-left">
             <h1 class="text-4xl font-black text-slate-800 tracking-tight">
-                Staff <span class="text-indigo-600">Futurama</span>
+                Staff Futurama
             </h1>
-            <p class="text-slate-500 text-sm mt-2">Personal obtenido mediante la API pública de Futurama.</p>
         </div>
 
         @if (cargando()) {
@@ -28,18 +27,13 @@
                         <h3 class="text-lg font-bold text-slate-800">{{ item.name }}</h3>
                         <span
                             class="text-[10px] font-bold px-2 py-1 rounded-full bg-indigo-50 text-indigo-600 uppercase">
-                            {{ item.gender || 'N/A' }}
+                            {{ item.gender }}
                         </span>
                     </div>
 
                     <p class="text-xs text-slate-500 italic line-clamp-2">
                         {{ item.species || 'Personaje de la serie' }}
                     </p>
-
-                    <div class="mt-4 pt-4 border-t border-slate-50 flex justify-between items-center">
-                        <span class="text-[10px] text-slate-400 font-mono italic">ID: {{ item.id }}</span>
-                        <button class="text-indigo-600 text-xs font-bold hover:underline">Ver ficha</button>
-                    </div>
                 </div>
             </div>
             } @empty {
