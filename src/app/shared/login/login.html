@@ -1,0 +1,42 @@
+<div class="min-h-[80vh] flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200 overflow-hidden">
+        
+        <div class="bg-slate-800 p-8 text-center">
+            <h2 class="text-2xl font-bold text-white tracking-tight">Bienvenido</h2>
+            <p class="text-slate-400 text-sm mt-1">Ingresa tus credenciales para continuar</p>
+        </div>
+
+        <form (ngSubmit)="iniciarSesion()" class="p-8 space-y-5">
+            
+            <div class="space-y-1">
+                <label for="email" class="text-[11px] font-bold text-slate-500 uppercase ml-1 tracking-wider">Correo Electrónico</label>
+                <div class="relative">
+                    <input [(ngModel)]="email" type="email" id="email" name="email" required
+                        class="w-full pl-4 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-slate-700 text-sm placeholder:text-slate-400"
+                        placeholder="ejemplo@correo.com" />
+                </div>
+            </div>
+
+            <div class="space-y-1">
+                <label for="password" class="text-[11px] font-bold text-slate-500 uppercase ml-1 tracking-wider">Contraseña</label>
+                <input [(ngModel)]="password" type="password" id="password" name="password" required
+                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-slate-700 text-sm placeholder:text-slate-400"
+                    placeholder="••••••••" />
+            </div>
+
+            
+
+            <div class="pt-4 space-y-3">
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-indigo-200 active:scale-[0.98] flex items-center justify-center gap-2">
+                    <span>Iniciar Sesión</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+
+            </div>
+        </form>
+
+    </div>
+</div>

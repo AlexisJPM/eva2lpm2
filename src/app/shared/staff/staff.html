@@ -1,0 +1,53 @@
+<div class="min-h-screen bg-slate-50 p-4 lg:p-8">
+    <div class="max-w-7xl mx-auto">
+
+        <div class="mb-10 text-center md:text-left">
+            <h1 class="text-4xl font-black text-slate-800 tracking-tight">
+                Staff <span class="text-indigo-600">Futurama</span>
+            </h1>
+            <p class="text-slate-500 text-sm mt-2">Personal obtenido mediante la API pública de Futurama.</p>
+        </div>
+
+        @if (cargando()) {
+        <div class="flex justify-center items-center h-64">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+        </div>
+        } @else {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            @for (item of personajes(); track item.id) {
+            <div
+                class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+
+                <div class="h-64 bg-slate-100 overflow-hidden flex items-center justify-center p-6">
+                    <img [src]="item.image" [alt]="item.name"
+                        class="h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                </div>
+
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-slate-800">{{ item.name }}</h3>
+                        <span
+                            class="text-[10px] font-bold px-2 py-1 rounded-full bg-indigo-50 text-indigo-600 uppercase">
+                            {{ item.gender || 'N/A' }}
+                        </span>
+                    </div>
+
+                    <p class="text-xs text-slate-500 italic line-clamp-2">
+                        {{ item.species || 'Personaje de la serie' }}
+                    </p>
+
+                    <div class="mt-4 pt-4 border-t border-slate-50 flex justify-between items-center">
+                        <span class="text-[10px] text-slate-400 font-mono italic">ID: {{ item.id }}</span>
+                        <button class="text-indigo-600 text-xs font-bold hover:underline">Ver ficha</button>
+                    </div>
+                </div>
+            </div>
+            } @empty {
+            <div class="col-span-full text-center py-20">
+                <p class="text-slate-400 italic">No se encontraron personajes disponibles.</p>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>
